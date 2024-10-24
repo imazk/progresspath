@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add Question and Options to {{ test.title }}</h2>
+<form method="post">
+    {% csrf_token %}
+    <h3>Question</h3>
+    {{ question_form.as_p }}
+
+    <h3>Options</h3>
+    {% for form in option_forms %}
+        {{ form.as_p }}
+    {% endfor %}
+
+    <button type="submit">Add Question and Options</button>
+</form>
+{% endblock %}

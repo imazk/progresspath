@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+<div class="login-box">
+    <form method="post">
+        {% csrf_token %}
+        {% if form.errors %}
+            <div class="errorlist">
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <p style="color: red;">{{ error }}</p>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <p style="color: red;">{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="input-box">
+            <input type="text" class="input-field" placeholder="Username" name="username" required>
+        </div>
+        <div class="input-box">
+            <input type="email" class="input-field" placeholder="Email" name="email" required>
+        </div>
+        <div class="input-box">
+            <input type="password" class="input-field" placeholder="Password" name="password1" required>
+        </div>
+        <div class="input-box">
+            <input type="password" class="input-field" placeholder="Confirm Password" name="password2" required>
+        </div>
+        <div class="input-submit">
+            <button type="submit" class="submit-btn">Sign Up</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

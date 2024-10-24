@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+}
+
+/* Reels Container */
+.reelscontainer {
+    position: fixed;
+    left: 30%;
+    height: 80vh;
+    width: 30vw;
+    margin-top: 4vmax;
+    display: flex;
+    overflow: auto;
+    gap: 2em;
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    border-radius: 4%;
+}
+
+.reelscontainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual Reel */
+.reel {
+    min-height: 80vh;
+    min-width: 15vw;
+    background: rgb(80, 78, 78);
+    scroll-snap-align: start;
+    border-radius: 4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1em;
+    position: relative;
+}
+
+/* Question Text Styling */
+.question_text {
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 1em;
+    margin-top: 0;
+    line-height: 1.6;
+}
+
+
+/* Button Container */
+.button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5em;
+    width: 100%;
+    position: relative;
+}
+
+/* Selected Option Styling */
+.selected-option {
+    background-color: #00A8FF;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    display: inline-block;
+}
+
+/* Submit Button */
+.submit {
+    position: fixed; /* Fixed positioning */
+    bottom: 20px; /* 20px from the bottom */
+    right: 20px; /* 20px from the right */
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block; /* Ensure it is visible */
+}
+
+.submit:hover {
+    background-color: #0056b3;
+}
+
+/* Result Container */
+.result-container {
+    position: fixed; /* Fixed positioning */
+    bottom: 80px; /* 20px from the bottom */
+    right: 20px; /* 20px from the right */
+    width: 200px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Difficulty Level Styling */
+.difficulty_level.easy {
+    color: green;
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.difficulty_level.medium {
+    color: orange;
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.difficulty_level.hard {
+    color: red;
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+
+
+
+
+button {
+    width: 14vw; /* Reduced button width */
+    height: 8vh;
+    padding: 0.5em 0.7em;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #007BFF, #00A8FF);
+    color: white;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #0056b3, #0099cc);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --base-clr: #11121a;
+    --line-clr: #42434a;
+    --hover-clr: #222533;
+    --text-clr: #e6e6ef;
+    --accent-clr: #5e63ff;
+    --secondary-text-clr: #b0b3c1;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5rem;
+}
+
+
+
+
+
+#sidebar{
+    position: fixed; /* Make the sidebar fixed to the left */
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full height */
+    width: 15vw; /* Set the desired width for the sidebar */
+    background-color: #1d1d1d; /* Background color */
+    overflow-y: auto; /* Allow scrolling for content that overflows */
+    padding-top: 0;
+    z-index: 1000; /* Make sure it stays on top */    
+}
+
+#sidebar ul{
+    list-style: none;
+}
+
+#sidebar > ul > li:first-child{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+    .logo{
+        font-weight: 600;
+        font-size: 28px;
+    }
+}
+#sidebar ul li.active a{
+    color: var(--accent-clr);
+
+    svg{
+        fill: var(--accent-clr);
+    }
+}
+
+#sidebar a , #sidebar .logo{
+    border-radius: .5em;
+
+    padding: .85em;
+
+    text-decoration: none;
+    color: var(--text-clr);
+
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    transition: 300ms ease;
+}
+#sidebar svg{
+    flex-shrink: 0;
+    fill: var(--text-clr);
+}
+
+#sidebar a span{
+    flex-grow: 1;
+}
+#sidebar a:hover{
+    background-color: var(--hover-clr);
+    transition: 300ms ease;
+    transform: scale(1.1);
+}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="login-box">
+    <div class="login-header">
+        <h2>Pick your preferred login method</h2>
+    </div>
+    <div class="input-box">
+        <a href="https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?client_id=1025144352851-uj4a7mep781g4r6ruhrp6f4vguggrj65.apps.googleusercontent.com&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Faccounts%2Fgoogle%2Flogin%2Fcallback%2F&scope=profile%20email&response_type=code&state=UnEN3EwpuemWtBSs&access_type=online&service=lso&o2v=2&ddm=0&flowName=GeneralOAuthFlow" class="submit-btn google-btn">
+            <img src="{% static 'images/google-logo.png' %}" alt="Google Logo" class="google-logo">
+            Continue with Google
+        </a>
+    </div>
+    <div class="input-box">
+        <p>OR</p>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        {% if error %}
+        <p>{{ error }}</p>
+        {% endif %}
+        <div class="input-box">
+            <input type="text" class="input-field" placeholder="Enter your email or username" name="email_or_username" required>
+        </div>
+        <div class="input-box">
+            <input type="password" class="input-field" placeholder="Password" name="password" required>
+        </div>
+        <div class="input-submit">
+            <button type="submit" class="submit-btn">Login</button>
+        </div>
+    </form>
+    <div class="sign-up-link">
+        <p>Don't have an account? <a href="#" onclick="toggleSignupOptions()">Sign up here</a></p>
+    </div>
+    <div id="signup-options" style="display: none;">
+        <p>Sign up as <a href="{% url 'teacher_signup' %}">Teacher</a> or <a href="{% url 'student_signup' %}">Student</a></p>
+    </div>
+</div>
+
+<script>
+    function toggleSignupOptions() {
+        var x = document.getElementById("signup-options");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}

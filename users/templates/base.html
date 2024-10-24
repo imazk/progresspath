@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>{% block title %}ProgressPath{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    {% block header %}
+    {% include 'header.html' %}
+    {% endblock %}
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% comment %} {% block footer %}
+    {% include 'footer.html' %}
+    {% endblock %} {% endcomment %}
+</body>
+</html>

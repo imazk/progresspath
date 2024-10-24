@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <h2>Welcome to ProgressPath!</h2>
+    <p>Track your progress and achieve your goals with ease.</p>
+    <p>Your journey to progress starts here. Please <a href="{% url 'login' %}">log in</a> or <a href="{% url 'student_signup' %}">sign up</a>.</p>
+</div>
+{% endblock %}

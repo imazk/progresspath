@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Join Class</h2>
+<form method="get" action=".">
+    <input type="text" name="name" placeholder="Enter class group name" value="{{ request.GET.name }}">
+    <button type="submit">Filter</button>
+</form>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Join Class</button>
+</form>
+<ul>
+    {% for name in class_group_names %}
+    <li>{{ name }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

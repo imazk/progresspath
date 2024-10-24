@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --base-clr: #11121a;
+    --base-clr-lighter: #1a1b24;
+    --base-clr-darker: #0b0c11;
+    --base-clr-tint: #2d2e3c;
+    --base-clr-muted: #181a23;
+    --base-clr-shade: #08090d;
+
+    --line-clr: #42434a;
+    --line-clr-darker: #36373d;
+    --line-clr-lighter: #5a5b61;
+    --line-clr-tint: #61626a;
+    --line-clr-shade: #2a2b31;
+    --line-clr-muted: #505158;
+    
+    --text-clr: #e6e6ef;
+    --secondary-text-clr: #b0b3c1;
+    
+    --accent-clr: #5e63ff;
+    
+    --hover-clr: #222533;
+    --hover-clr-darker: #1a1c28;
+    --hover-clr-lighter: #2b2f3e;
+    --hover-clr-tint: #3b3f52;
+    --hover-clr-shade: #181a22;
+    --hover-clr-muted: #2e3140;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5rem;
+}
+
+body{
+    min-height: 100vh;
+    min-width: 100dvh;
+    background-color: var(--base-clr);
+    color: var(--text-clr);
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    
+}
+
+main{
+    padding: min(30px, 7%);
+    padding: 20px;
+    display: grid;
+
+    grid-template-areas: 
+    "header"
+    "content";
+
+    grid-template-rows: 100px 1fr;
+}
+#greetings{
+    border-bottom: var(--line-clr) solid 4px;
+    margin-bottom: 20px;
+}
+main h2{
+    position: absolute;
+    top: 40px;
+}
+main h2#date{
+    position: absolute;
+    top: 40px;
+    right: 90px;
+    font-size: 24px;
+}
+main svg{
+    height: 40px;
+    width: 40px;
+}
+main button{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+
+    height: 50px;
+    width: 50px;
+
+    border-style: solid;
+    border-radius: 50px;
+    border-color: whitesmoke;
+
+    background-color: transparent;
+    cursor: pointer;
+
+    transition: 300ms ease;
+}
+#profile:hover{
+    background-color: var(--hover-clr);
+    transform: scale(1.1);
+
+}
+
+
+#sidebar{
+    box-sizing: border-box;
+
+    width: 250px;
+    height: 100vh;
+
+    padding: 5px 1em;
+
+    background-color: var(--base-clr);
+
+    border-right: 1px solid var(--line-clr);
+
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+}
+
+#sidebar ul{
+    list-style: none;
+}
+
+#sidebar > ul > li:first-child{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+    .logo{
+        font-weight: 600;
+        font-size: 28px;
+    }
+}
+#sidebar ul li.active a{
+    color: var(--accent-clr);
+
+    svg{
+        fill: var(--accent-clr);
+    }
+}
+
+#sidebar a , #sidebar .logo{
+    border-radius: .5em;
+
+    padding: .85em;
+
+    text-decoration: none;
+    color: var(--text-clr);
+
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    transition: 300ms ease;
+}
+#sidebar svg{
+    flex-shrink: 0;
+    fill: var(--text-clr);
+}
+
+#sidebar a span{
+    flex-grow: 1;
+}
+#sidebar a:hover{
+    background-color: var(--hover-clr);
+    transition: 300ms ease;
+    transform: scale(1.1);
+}
+.content{
+    display: grid;
+    grid-template-areas:
+    "my other";
+    grid-template-columns: 1fr 1fr;
+
+    border: none solid 2px ;
+    border-radius: 40px;
+    gap: 20px;
+
+}
+.my{
+    grid-area: my;
+    background-color: var(--base-clr-muted);
+}
+.scrool {
+    max-height: 500px;
+    overflow-y: auto;
+}           
+
+.scrool::-webkit-scrollbar {
+    width: 10px;
+}
+
+.scrool::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.scrool::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.scrool::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+.other{
+    grid-area: other;
+    background-color: var(--base-clr-tint);
+    scroll-margin-block: 0;
+    overflow-y: auto;
+}
+
+.my h1 ,    .other h1 {
+    text-align: center;
+    padding-top: 20px;
+}
+.my , .other{
+    grid-template-areas: 
+    "1"
+    "2"
+    "3";
+
+    div{
+        text-align: center;
+        margin: 20px;
+        margin-top: 28px;
+        border: var(--line-clr-tint) solid 2px;
+        height: auto;
+    }
+}
+
+.mydbt1{
+    grid-area: 1;
+}
+.mydbt2{
+    grid-area: 2;
+}
+.mydbt3{
+    grid-area: 3;
+}

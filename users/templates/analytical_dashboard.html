@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytical Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Analytical Dashboard</h1>
+        <h2>Slow Learners</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Average Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in slow_learners %}
+                <tr>
+                    <td>{{ student.student_name }}</td>
+                    <td>{{ student.average_score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
